@@ -7,8 +7,3 @@
         MoveData = new MoveData();
     }
 }
-
-public class MoveData
-{
-    public float Speed { get; } = 3;
-}
