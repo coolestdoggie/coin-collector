@@ -1,31 +1,39 @@
 ﻿using UnityEngine;
+using Zenject;
 
 public class CharactersFactory : ICharactersFactory
 {
+    private readonly DiContainer _diContainer;
+    public CharactersFactory(DiContainer diContainer)
+    {
+        _diContainer = diContainer;
+    }
+    
     public void Create(CharacterType characterType, Vector2 position)
     {
-        GameObject gameObjectToCreate = null;
+        GameObject prefab = null;
         switch (characterType)
         {
             case CharacterType.Player:
             {
-                gameObjectToCreate = Resources.Load("Characters/Player") as GameObject;
+                prefab = Resources.Load("Characters/Player") as GameObject;
                 
                 PlayerModel playerModel = new PlayerModel();
-                var playerView = GameObject.Instantiate(gameObjectToCreate, position, Quaternion.identity)
-                    .GetComponent<PlayerView>();
+                GameObject gameObject = _diContainer.InstantiatePrefab(prefab, position, Quaternion.identity, null);
+                PlayerView playerView = gameObject.GetComponent<PlayerView>();
+                
                 playerView.Init(playerModel);
                 break;
             }
             case CharacterType.Flower:
             {
-                gameObjectToCreate = Resources.Load("Characters/Flower") as GameObject;
+                prefab = Resources.Load("Characters/Flower") as GameObject;
                 break;
             }
         }
 
 
-        if (gameObjectToCreate == null)
+        if (prefab == null)
         {
             return;
         }
