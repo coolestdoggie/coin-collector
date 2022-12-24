@@ -1,18 +1,22 @@
+using CoinCollector.Factories;
 using UnityEngine;
 using Zenject;
 
-public class Bootstrap : MonoBehaviour
+namespace CoinCollector
 {
-    private ICharactersFactory _charactersFactory;
-
-    [Inject]
-    private void Construct(ICharactersFactory charactersFactory)
+    public class Bootstrap : MonoBehaviour
     {
-        _charactersFactory = charactersFactory;
-    }
+        private ICharactersFactory _charactersFactory;
 
-    private void Start()
-    {
-        _charactersFactory.Create(CharacterType.Player, Vector2.zero);
+        [Inject]
+        private void Construct(ICharactersFactory charactersFactory)
+        {
+            _charactersFactory = charactersFactory;
+        }
+
+        private void Start()
+        {
+            _charactersFactory.Create(CharacterType.Player, Vector2.zero);
+        }
     }
 }
