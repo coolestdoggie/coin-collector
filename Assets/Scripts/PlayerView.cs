@@ -9,14 +9,16 @@ public class PlayerView : MonoBehaviour
     public void Init(PlayerModel playerModel)
     {
         _playerModel = playerModel;
-        _playerInput = new PlayerInput();
+        _playerInput = new PlayerInput(playerModel.PhysicsData);
         _playerMovement.Init(_playerModel);
 
         _playerInput.UserTapped += _playerMovement.StartMovement;
+        _playerInput.UserTappedOnPlayer += _playerMovement.StopMovement;
     }
 
     private void OnDestroy()
     {
         _playerInput.UserTapped -= _playerMovement.StartMovement;
+        _playerInput.UserTappedOnPlayer -= _playerMovement.StopMovement;
     }
 }

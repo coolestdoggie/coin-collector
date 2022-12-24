@@ -9,9 +9,9 @@ public class PlayerMovement : MonoBehaviour
         _playerModel = playerModel;
     }
 
-    public void StartMovement(PlayerInputActions playerInputActions)
+    public void StartMovement(Vector2 posToMove)
     {
-        _playerModel.StateData.TargetPosition = Camera.main.ScreenToWorldPoint(playerInputActions.Player.Position.ReadValue<Vector2>());
+        _playerModel.StateData.TargetPosition = posToMove;
         _playerModel.StateData.IsMoving = true;
     }
 
