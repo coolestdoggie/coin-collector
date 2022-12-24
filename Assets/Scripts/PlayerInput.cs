@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput
 {
-    private PlayerInputActions _playerInputActions;
+    private readonly PlayerInputActions _playerInputActions;
 
     public event Action<PlayerInputActions> UserTapped;
 

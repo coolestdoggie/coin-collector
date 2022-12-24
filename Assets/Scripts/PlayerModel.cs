@@ -3,7 +3,6 @@
     public MoveData MoveData { get; }
     public StateData StateData { get; }
 
-
     public PlayerModel()
     {
         MoveData = new MoveData();

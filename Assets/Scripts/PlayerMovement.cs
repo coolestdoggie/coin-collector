@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,33 +11,44 @@ public class PlayerMovement : MonoBehaviour
 
     public void StartMovement(PlayerInputActions playerInputActions)
     {
-        StartCoroutine(MoveCoroutine(playerInputActions));
-    }
-
-    private IEnumerator MoveCoroutine(PlayerInputActions playerInputActions)
-    {
         _playerModel.StateData.TargetPosition = Camera.main.ScreenToWorldPoint(playerInputActions.Player.Position.ReadValue<Vector2>());
-        
-        bool needToMove = true;
-        while (needToMove)
-        {
-            needToMove = Move();
-            yield return new WaitForEndOfFrame();
-        }
+        _playerModel.StateData.IsMoving = true;
     }
 
-    private bool Move()
+    public void StopMovement()
+    {
+        _playerModel.StateData.IsMoving = false;
+    }
+    
+    private void Update()
+    {
+        MoveProcess();
+    }
+
+    private void MoveProcess()
+    {
+        if (!_playerModel.StateData.IsMoving)
+        {
+            return;
+        }
+
+        Move();
+    }
+
+    private void Move()
     {
         float step = _playerModel.MoveData.Speed * Time.deltaTime;
+        transform.position = 
+            Vector2.MoveTowards(transform.position, _playerModel.StateData.TargetPosition, step);
 
-        transform.position = Vector2.MoveTowards(transform.position, _playerModel.StateData.TargetPosition, step);
+        if (!IsOnTarget()) return;
         
-        if (Vector3.Distance(transform.position, _playerModel.StateData.TargetPosition) < Mathf.Epsilon)
-        {
-            transform.position = _playerModel.StateData.TargetPosition;
-            return false;
-        }
+        transform.position = _playerModel.StateData.TargetPosition;
+        StopMovement();
+    }
 
-        return true;
+    private bool IsOnTarget()
+    {
+        return Vector3.Distance(transform.position, _playerModel.StateData.TargetPosition) < Mathf.Epsilon;
     }
 }
