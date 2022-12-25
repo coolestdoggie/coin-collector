@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace CoinCollector.Common
 {
+    
+    
     public class FlowersInfiniteSpawner : IInfiniteSpawner 
     {
         private ObjectPool<FlowerView> _flowerViewsPool;
