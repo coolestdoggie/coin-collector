@@ -22,6 +22,11 @@ namespace CoinCollector.UI
             _stats.Updated += UpdateDistanceText;
         }
 
+        private void Start()
+        {
+            UpdateDistanceText();
+        }
+
         private void UpdateDistanceText()
         {
             float traveledDistance = _stats.TraveledDistance;

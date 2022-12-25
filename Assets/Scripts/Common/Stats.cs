@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace CoinCollector.Common
 {
@@ -8,7 +9,13 @@ namespace CoinCollector.Common
         
         private float _traveledDistance;
         private int _score;
+        private SaveData _saveData;
 
+        public Stats()
+        {
+            _saveData = new SaveData();
+            Load();
+        }
 
         public int Score
         {
@@ -16,6 +23,7 @@ namespace CoinCollector.Common
             set 
             { 
                 _score = value;
+                _saveData.Score = _score;
                 OnUpdated();
             }
         }
@@ -26,12 +34,31 @@ namespace CoinCollector.Common
             set
             {
                 _traveledDistance = value;
+                _saveData.TraveledDistance = _traveledDistance;
                 OnUpdated();
             }
+        }
+        
+        private void Save()
+        {
+            SerializationManager.Save("data", _saveData);
+        }
+
+        private void Load()
+        {
+            var saveData = (SaveData) SerializationManager.Load(Application.persistentDataPath + "/saves/data.save");
+            if (saveData != null)
+            {
+                _saveData = saveData;
+            }
+            
+            _score = _saveData.Score;
+            _traveledDistance = _saveData.TraveledDistance;
         }
 
         protected virtual void OnUpdated()
         {
+            Save();
             Updated?.Invoke();
         }
     }

@@ -20,6 +20,11 @@ namespace CoinCollector.UI
         {
             _stats.Updated += UpdateScoreText;
         }
+        
+        private void Start()
+        {
+            UpdateScoreText();
+        }
 
         private void UpdateScoreText()
         {

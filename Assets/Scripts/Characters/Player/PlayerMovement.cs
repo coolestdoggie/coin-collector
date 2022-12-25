@@ -50,8 +50,9 @@ namespace CoinCollector.Characters.Player
             float step = _playerModel.MoveData.Speed * Time.deltaTime;
             transform.position = 
                 Vector2.MoveTowards(transform.position, _playerModel.StateData.TargetPosition, step);
-            
-            _stats.TraveledDistance += (_playerModel.StateData.PosLastMovementFrame - (Vector2)transform.position).magnitude;
+
+            Vector2 deltaLastFrame = _playerModel.StateData.PosLastMovementFrame - (Vector2) transform.position;
+            _stats.TraveledDistance += deltaLastFrame.magnitude;
 
             if (!IsOnTarget()) return;
         
