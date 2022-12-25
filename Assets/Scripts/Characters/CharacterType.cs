@@ -1,4 +1,4 @@
-﻿namespace CoinCollector.Factories
+﻿namespace CoinCollector.Characters
 {
     public enum CharacterType
     {

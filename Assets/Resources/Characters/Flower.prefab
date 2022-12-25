@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 3815808003747842910}
   - component: {fileID: 6987168522019296886}
   - component: {fileID: 3392383441958934767}
+  - component: {fileID: 367757449642742488}
   m_Layer: 0
   m_Name: Flower
   m_TagString: Untagged
@@ -234,3 +235,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &367757449642742488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6190936811594728499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1a493aa9034494960216ee1664538a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

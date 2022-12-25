@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace CoinCollector.Player
+namespace CoinCollector.Characters.Player
 {
     public class PlayerInput
     {

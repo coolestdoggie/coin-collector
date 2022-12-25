@@ -1,8 +1,9 @@
-﻿using CoinCollector.Player;
+﻿using CoinCollector.Characters.Flower;
+using CoinCollector.Characters.Player;
 using UnityEngine;
 using Zenject;
 
-namespace CoinCollector.Factories
+namespace CoinCollector.Characters
 {
     public class CharactersFactory : ICharactersFactory
     {
@@ -12,9 +13,10 @@ namespace CoinCollector.Factories
             _diContainer = diContainer;
         }
     
-        public void Create(CharacterType characterType, Vector2 position)
+        public GameObject Create(CharacterType characterType, Vector2 position)
         {
             GameObject prefab = null;
+            GameObject createdGameObject = null;
             switch (characterType)
             {
                 case CharacterType.Player:
@@ -22,8 +24,8 @@ namespace CoinCollector.Factories
                     prefab = Resources.Load("Characters/Player") as GameObject;
                 
                     PlayerModel playerModel = new PlayerModel();
-                    GameObject gameObject = _diContainer.InstantiatePrefab(prefab, position, Quaternion.identity, null);
-                    PlayerView playerView = gameObject.GetComponent<PlayerView>();
+                    createdGameObject = _diContainer.InstantiatePrefab(prefab, position, Quaternion.identity, null);
+                    PlayerView playerView = createdGameObject.GetComponent<PlayerView>();
                 
                     playerView.Init(playerModel);
                     break;
@@ -31,17 +33,19 @@ namespace CoinCollector.Factories
                 case CharacterType.Flower:
                 {
                     prefab = Resources.Load("Characters/Flower") as GameObject;
+                    
+                    FlowerModel flowerModel = new FlowerModel();
+                    createdGameObject = _diContainer.InstantiatePrefab(prefab, position, Quaternion.identity, null);
+                    FlowerView flowerView = createdGameObject.GetComponent<FlowerView>();
+
+                    flowerView.Init();
                     break;
                 }
             }
 
-
-            if (prefab == null)
-            {
-                return;
-            }
-        
+            return createdGameObject;
         }
+        
     
     }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CoinCollector.Player
+namespace CoinCollector.Characters.Player
 {
     public class PhysicsData
     {

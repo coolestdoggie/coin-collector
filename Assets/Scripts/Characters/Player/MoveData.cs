@@ -1,4 +1,4 @@
-﻿namespace CoinCollector.Player
+﻿namespace CoinCollector.Characters.Player
 {
     public class MoveData
     {

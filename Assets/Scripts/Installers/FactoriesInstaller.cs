@@ -1,4 +1,4 @@
-using CoinCollector.Factories;
+using CoinCollector.Characters;
 using Zenject;
 
 namespace CoinCollector.Installers
