@@ -1,10 +1,19 @@
-﻿using UnityEngine;
+﻿using CoinCollector.Common;
+using UnityEngine;
+using Zenject;
 
 namespace CoinCollector.Characters.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
         private PlayerModel _playerModel;
+        private IStats _stats;
+
+        [Inject]
+        private void Construct(IStats stats)
+        {
+            _stats = stats;
+        }
     
         public void Init(PlayerModel playerModel)
         {
@@ -29,19 +38,20 @@ namespace CoinCollector.Characters.Player
 
         private void MoveProcess()
         {
-            if (!_playerModel.StateData.IsMoving)
-            {
-                return;
-            }
+            if (!_playerModel.StateData.IsMoving) return;
 
             Move();
         }
 
         private void Move()
         {
+            _playerModel.StateData.PosLastMovementFrame = transform.position;
+            
             float step = _playerModel.MoveData.Speed * Time.deltaTime;
             transform.position = 
                 Vector2.MoveTowards(transform.position, _playerModel.StateData.TargetPosition, step);
+            
+            _stats.TraveledDistance += (_playerModel.StateData.PosLastMovementFrame - (Vector2)transform.position).magnitude;
 
             if (!IsOnTarget()) return;
         

@@ -24,7 +24,10 @@ namespace CoinCollector.UI
 
         private void UpdateDistanceText()
         {
-            _distanceText.text = _stats.TraveledDistance.ToString();
+            float traveledDistance = _stats.TraveledDistance;
+            string formattedTraveledDistance = Math.Round(traveledDistance, 1).ToString();
+            
+            _distanceText.text = formattedTraveledDistance;
         }
 
         private void OnDisable()
