@@ -1,9 +1,16 @@
-using CoinCollector;
+using CoinCollector.Common;
 using Zenject;
 
-public class StatsInstaller : MonoInstaller
+namespace CoinCollector.Installers
 {
-    public override void InstallBindings()
+    public class StatsInstaller : MonoInstaller
     {
+        public override void InstallBindings()
+        {
+            Container
+                .Bind<IStats>()
+                .To<Stats>()
+                .AsSingle();
+        }
     }
 }

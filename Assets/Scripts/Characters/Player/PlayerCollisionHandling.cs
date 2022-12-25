@@ -1,33 +1,29 @@
 ﻿using System;
 using CoinCollector.Characters.Flower;
+using CoinCollector.Common;
 using UnityEngine;
+using Zenject;
 
 namespace CoinCollector.Characters.Player
 {
     public class PlayerCollisionHandling : MonoBehaviour
     {
-        public event Action CollidedWithFlower;
-
         private PlayerModel _playerModel;
+        private IStats _stats;
 
-        public void Init(PlayerModel playerModel)
+        [Inject]
+        public void Construct(IStats stats)
         {
-            _playerModel = playerModel;
+            _stats = stats;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             var flowerView = other.GetComponent<FlowerView>();
-            if (flowerView != null)
-            {
-                flowerView.Release();
-                OnCollidedWithFlower();
-            }
-        }
-
-        protected virtual void OnCollidedWithFlower()
-        {
-            CollidedWithFlower?.Invoke();
+            if (flowerView == null) return;
+            
+            flowerView.Release();
+            _stats.Score++;
         }
     }
 }
