@@ -7,7 +7,7 @@ namespace CoinCollector.Installers
     {
         public override void InstallBindings()
         {
-            Container.Bind<ISpawner>().To<FlowersSpawner>().AsSingle();
+            Container.Bind<IInfiniteSpawner>().To<FlowersInfiniteSpawner>().AsSingle();
         }
     }
 }

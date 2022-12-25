@@ -7,19 +7,19 @@ namespace CoinCollector.Common
     public class Bootstrap : MonoBehaviour
     {
         private ICharactersFactory _charactersFactory;
-        private ISpawner _spawner;
+        private IInfiniteSpawner _infiniteSpawner;
 
         [Inject]
-        private void Construct(ICharactersFactory charactersFactory, ISpawner spawner)
+        private void Construct(ICharactersFactory charactersFactory, IInfiniteSpawner infiniteSpawner)
         {
             _charactersFactory = charactersFactory;
-            _spawner = spawner;
+            _infiniteSpawner = infiniteSpawner;
         }
 
         private void Start()
         {
             _charactersFactory.Create(CharacterType.Player, Vector2.zero);
-            _spawner.SpawnOneObject();
+            _infiniteSpawner.StartInfiniteSpawn();
         }
     }
 }

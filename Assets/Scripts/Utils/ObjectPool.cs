@@ -50,6 +50,7 @@ namespace CoinCollector.Utils
             }
             else if (_isDynamic)
                 result = _factoryMethod();
+
             _turnOnCallback(result);
             return result;
         }
