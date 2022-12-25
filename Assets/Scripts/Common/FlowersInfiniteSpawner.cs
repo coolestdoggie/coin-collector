@@ -56,6 +56,7 @@ namespace CoinCollector.Common
         {
             GameObject flower = _charactersFactory.Create(CharacterType.Flower, Vector2.zero);
             FlowerView flowerView = flower.GetComponent<FlowerView>();
+            
             return flowerView;
         }
 
@@ -65,8 +66,12 @@ namespace CoinCollector.Common
             {
                 return;
             }
+            
             obj.gameObject.SetActive(true);
             RandomizePosition(obj);
+            
+            FlowerView flowerView = obj.GetComponent<FlowerView>();
+            flowerView.SetPool(_flowerViewsPool);
         }
 
         private void RandomizePosition(FlowerView flowerView)
