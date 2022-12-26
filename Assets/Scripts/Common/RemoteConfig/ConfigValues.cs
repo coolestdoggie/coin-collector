@@ -1,6 +1,6 @@
 ﻿using Unity.Services.RemoteConfig;
 
-namespace CoinCollector.Common
+namespace CoinCollector.Common.RemoteConfig
 {
     public static class ConfigValues
     {

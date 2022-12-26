@@ -1,24 +1,22 @@
 ﻿using System.Threading.Tasks;
 using CoinCollector.Characters;
 using CoinCollector.Characters.Flower;
+using CoinCollector.Common.RemoteConfig;
 using CoinCollector.Utils;
-using Unity.Services.RemoteConfig;
 using UnityEngine;
 
-namespace CoinCollector.Common
+namespace CoinCollector.Common.Spawn
 {
     public class FlowersInfiniteSpawner : IInfiniteSpawner 
     {
         private ObjectPool<FlowerView> _flowerViewsPool;
-
         private ICharactersFactory _charactersFactory;
-
-        private bool _isSpawning;
-
+        private FlowersSpawnerStateData _spawnerStateData;
         
         public FlowersInfiniteSpawner(ICharactersFactory charactersFactory)
         {
             _charactersFactory = charactersFactory;
+            _spawnerStateData = new FlowersSpawnerStateData();
             
             _flowerViewsPool = new ObjectPool<FlowerView>(
                 ViewCreate,
@@ -31,13 +29,13 @@ namespace CoinCollector.Common
 
         public void StartInfiniteSpawn()
         {
-            _isSpawning = true;
+            _spawnerStateData.IsSpawning= true;
             InfiniteSpawn();
         }
 
         private async void InfiniteSpawn()
         {
-            while (_isSpawning)
+            while (_spawnerStateData.IsSpawning)
             {
                 SpawnInstance();
                 await Task.Delay(ConfigValues.MS_BTW_FLOWERS_SPAWN);
@@ -51,7 +49,7 @@ namespace CoinCollector.Common
 
         public void StopInfiniteSpawn()
         {
-            _isSpawning = false;
+            _spawnerStateData.IsSpawning = false;
         }
 
         private FlowerView ViewCreate()
@@ -78,8 +76,11 @@ namespace CoinCollector.Common
 
         private void RandomizePosition(FlowerView flowerView)
         {
-            float randomX = Random.Range(-5, 5);
-            float randomY = Random.Range(-5, 5);
+            Vector2 xBounds = Utils.Utils.GetXWorldBounds();
+            Vector2 yBounds = Utils.Utils.GetYWorldBounds();
+            
+            float randomX = Random.Range(xBounds.x, xBounds.y);
+            float randomY = Random.Range(yBounds.x, yBounds.y);
             
             flowerView.gameObject.transform.position = new Vector2(randomX, randomY);
         }

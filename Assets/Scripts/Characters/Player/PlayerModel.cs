@@ -1,5 +1,4 @@
-﻿
-namespace CoinCollector.Characters.Player
+﻿namespace CoinCollector.Characters.Player
 {
     public class PlayerModel
     {

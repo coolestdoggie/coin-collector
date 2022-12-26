@@ -1,4 +1,4 @@
-﻿namespace CoinCollector.Common
+﻿namespace CoinCollector.Common.Spawn
 {
     public interface IInfiniteSpawner
     {

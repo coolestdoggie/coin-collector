@@ -1,4 +1,5 @@
 using CoinCollector.Common;
+using CoinCollector.Common.Spawn;
 using Zenject;
 
 namespace CoinCollector.Installers

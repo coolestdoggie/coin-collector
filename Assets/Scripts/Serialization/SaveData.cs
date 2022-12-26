@@ -1,4 +1,4 @@
-﻿namespace CoinCollector
+﻿namespace CoinCollector.Serialization
 {
     [System.Serializable]
     public class SaveData

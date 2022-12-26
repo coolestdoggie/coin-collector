@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-namespace CoinCollector
+namespace CoinCollector.Serialization
 {
     public class SerializationManager : MonoBehaviour
     {

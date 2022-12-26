@@ -1,6 +1,7 @@
 ﻿using System;
 using CoinCollector.Characters.Flower;
 using CoinCollector.Common;
+using CoinCollector.Common.Stats;
 using UnityEngine;
 using Zenject;
 

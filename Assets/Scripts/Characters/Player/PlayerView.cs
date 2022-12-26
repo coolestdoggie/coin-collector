@@ -5,7 +5,6 @@ namespace CoinCollector.Characters.Player
     public class PlayerView : MonoBehaviour
     {
         [SerializeField] private PlayerMovement _playerMovement;
-        [SerializeField] private PlayerCollisionHandling _playerCollisionHandling;
         private PlayerInput _playerInput;
         private PlayerModel _playerModel;
 

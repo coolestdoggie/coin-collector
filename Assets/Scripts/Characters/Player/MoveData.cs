@@ -1,4 +1,4 @@
-﻿using CoinCollector.Common;
+﻿using CoinCollector.Common.RemoteConfig;
 
 namespace CoinCollector.Characters.Player
 {

@@ -1,7 +1,8 @@
 using System;
+using CoinCollector.Serialization;
 using UnityEngine;
 
-namespace CoinCollector.Common
+namespace CoinCollector.Common.Stats
 {
     public class Stats: IStats
     {

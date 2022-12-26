@@ -1,4 +1,5 @@
 ﻿using CoinCollector.Common;
+using CoinCollector.Common.RemoteConfig;
 using UnityEngine;
 
 namespace CoinCollector.Characters.Player

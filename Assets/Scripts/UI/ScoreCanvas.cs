@@ -1,4 +1,5 @@
 ﻿using CoinCollector.Common;
+using CoinCollector.Common.Stats;
 using TMPro;
 using UnityEngine;
 using Zenject;

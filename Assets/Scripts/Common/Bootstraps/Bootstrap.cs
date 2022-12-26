@@ -1,8 +1,9 @@
 using CoinCollector.Characters;
+using CoinCollector.Common.Spawn;
 using UnityEngine;
 using Zenject;
 
-namespace CoinCollector.Common
+namespace CoinCollector.Common.Bootstraps
 {
     public class Bootstrap : MonoBehaviour
     {

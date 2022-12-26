@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CoinCollector.Common
+namespace CoinCollector.Common.Stats
 {
     public interface IStats
     {

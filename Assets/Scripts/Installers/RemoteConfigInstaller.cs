@@ -1,10 +1,13 @@
-using UnityEngine;
+using CoinCollector.Common.RemoteConfig;
 using Zenject;
 
-public class RemoteConfigInstaller : MonoInstaller
+namespace CoinCollector.Installers
 {
-    public override void InstallBindings()
+    public class RemoteConfigInstaller : MonoInstaller
     {
-        Container.Bind<RemoteConfigInitializer>().AsSingle().NonLazy();
+        public override void InstallBindings()
+        {
+            Container.Bind<RemoteConfigInitializer>().AsSingle().NonLazy();
+        }
     }
 }

@@ -1,9 +1,9 @@
-﻿using Unity.Services.RemoteConfig;
+﻿using CoinCollector.Common.RemoteConfig;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
-namespace CoinCollector.Common
+namespace CoinCollector.Common.Bootstraps
 {
     public class LoadScreenBootstrap : MonoBehaviour
     {
