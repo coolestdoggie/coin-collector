@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace CoinCollector.Characters.Player
 {
     public class PlayerModel
@@ -8,7 +7,6 @@ namespace CoinCollector.Characters.Player
         public PhysicsData PhysicsData { get; }
         public StateData StateData { get; }
 
-        public event Action CollectedFlower;
         
         public PlayerModel()
         {
@@ -17,9 +15,5 @@ namespace CoinCollector.Characters.Player
             StateData = new StateData();
         }
 
-        public void OnCollectedFlower()
-        {
-            CollectedFlower?.Invoke();
-        }
     }
 }

@@ -12,18 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"708dee26-01be-415c-8254-f18f9f3bf4db\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"fecc1a8e-1992-4257-aac0-d0965b10533f\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"maxAmountOfFlowers\",\r\n      \"type\":
     \"int\",\r\n      \"value\": 5\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n     
-    \"entityId\": \"821ae1c7-a160-4ab4-8256-d593486379a1\"\r\n    },\r\n    \"rs\":
+    \"entityId\": \"02c03a0f-9f1b-4801-88a4-c48ee61ee074\"\r\n    },\r\n    \"rs\":
     {\r\n      \"key\": \"msBetweenFlowersSpawn\",\r\n      \"type\": \"int\",\r\n     
-    \"value\": 3000\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"708dee26-01be-415c-8254-f18f9f3bf4db\"\r\n   
+    \"value\": 3000\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
+    \"929365cf-46e1-4c44-8218-f19e680cd535\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"playerSpeed\",\r\n      \"type\": \"float\",\r\n      \"value\": 10.0\r\n   
+    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"fff02241-84ac-4b86-aebb-e4690b49b5cd\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"playerLayerMask\",\r\n      \"type\":
+    \"string\",\r\n      \"value\": \"Player\"\r\n    }\r\n  }\r\n]"
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"fecc1a8e-1992-4257-aac0-d0965b10533f\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"maxAmountOfFlowers\",\r\n      \"type\":
     \"int\",\r\n      \"value\": 5\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n     
-    \"entityId\": \"821ae1c7-a160-4ab4-8256-d593486379a1\"\r\n    },\r\n    \"rs\":
+    \"entityId\": \"02c03a0f-9f1b-4801-88a4-c48ee61ee074\"\r\n    },\r\n    \"rs\":
     {\r\n      \"key\": \"msBetweenFlowersSpawn\",\r\n      \"type\": \"int\",\r\n     
-    \"value\": 3000\r\n    }\r\n  }\r\n]"
+    \"value\": 3000\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
+    \"929365cf-46e1-4c44-8218-f19e680cd535\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"playerSpeed\",\r\n      \"type\": \"float\",\r\n      \"value\": 10.0\r\n   
+    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"fff02241-84ac-4b86-aebb-e4690b49b5cd\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"playerLayerMask\",\r\n      \"type\":
+    \"string\",\r\n      \"value\": \"Player\"\r\n    }\r\n  }\r\n]"
   _environments: "[\r\n  {\r\n    \"projectId\": \"bc6f1dd2-4228-4810-9212-bcff5a3a3bdb\",\r\n   
     \"name\": \"production\",\r\n    \"id\": \"e6b119d1-96b7-4657-ace3-6284d9fd7e29\",\r\n   
     \"isDefault\": true,\r\n    \"createdAt\": \"2022-12-26T09:13:35Z\",\r\n    \"updatedAt\":

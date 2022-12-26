@@ -24,7 +24,7 @@ namespace CoinCollector.Common
                 ViewCreate,
                 ViewOnGet,
                 ViewOnRelease,
-                RemoteConfigService.Instance.appConfig.GetInt("maxAmountOfFlowers"),
+                ConfigValues.MAX_AMOUNT_OF_FLOWERS,
                 false
             );
         }
@@ -40,7 +40,7 @@ namespace CoinCollector.Common
             while (_isSpawning)
             {
                 SpawnInstance();
-                await Task.Delay(3000);
+                await Task.Delay(ConfigValues.MS_BTW_FLOWERS_SPAWN);
             }
         }
 
