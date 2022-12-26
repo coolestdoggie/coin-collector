@@ -2,6 +2,7 @@
 using CoinCollector.Characters;
 using CoinCollector.Characters.Flower;
 using CoinCollector.Utils;
+using Unity.Services.RemoteConfig;
 using UnityEngine;
 
 namespace CoinCollector.Common
@@ -14,6 +15,7 @@ namespace CoinCollector.Common
 
         private bool _isSpawning;
 
+        
         public FlowersInfiniteSpawner(ICharactersFactory charactersFactory)
         {
             _charactersFactory = charactersFactory;
@@ -22,7 +24,7 @@ namespace CoinCollector.Common
                 ViewCreate,
                 ViewOnGet,
                 ViewOnRelease,
-                10,
+                RemoteConfigService.Instance.appConfig.GetInt("maxAmountOfFlowers"),
                 false
             );
         }
